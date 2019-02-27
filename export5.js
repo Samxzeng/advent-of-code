@@ -28,13 +28,13 @@ function removePolarity(data){
         removePolarity(filterArray) // multiple runs of function itself, to get result array no reduction
     }
     else{
-        console.log("yes")
-        console.log(filterArray.length)
+        console.log("after react is ",filterArray.length)
         finalArray.push(filterArray)
     }
     return finalArray
 }
-removePolarity(dataInput)
-console.log('result',finalArray[0].length)
+// removePolarity(dataInput)
+// console.log('result',finalArray[0].length)
+module.exports = {removePolarity,finalArray, dataInput}
 
 
