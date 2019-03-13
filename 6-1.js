@@ -1,9 +1,6 @@
 
 const fs = require('fs')
 const dataInput = fs.readFileSync('input6-1.txt', 'utf8').split(/\r\n/gm)
-// console.log(dataInput)
-//has to find the most outer book by seeing all 5 pairs and get the outer number, then see each of inside belongs to which on \
-// use 2 layer of for loop to get every point close to which one 
 
 function cutString(str){
     const left = str.substring(0,str.indexOf(','))*1
@@ -11,7 +8,7 @@ function cutString(str){
     return [left,right]
 }
 const arrayData = dataInput.map(element=>cutString(element))
-// console.log(arrayData)
+//orginise to array
 
 xArray = arrayData.map(element=>element[0])
 yArray = arrayData.map(element=>element[1])
@@ -39,11 +36,12 @@ function calculateDistance (array,minX,maxX,minY,maxY){
             //findout the smallest one
         }
     }
-    // console.log(counter)
     return counter
 }
 const square = calculateDistance(arrayData,minX,maxX,minY,maxY)
 const squareLarge = calculateDistance(arrayData,minX-1,maxX+1,minY-1,maxY+1)
+//try to enlarge mixX,minY,maxX, maxY to see which one will change
+//the one changes will be infinite, the remaining value is finite
 
 function findoverlapBiggest(obj1,obj2){
     let value1= Object.values(obj1)
@@ -63,12 +61,10 @@ function findoverlapBiggest(obj1,obj2){
     return maxResult
 }
 
-
-
 findoverlapBiggest(square,squareLarge)
 
 
 
 
 
-//try to enlarge mixX,minY,maxX, maxY to see which one will change
+
