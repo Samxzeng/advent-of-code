@@ -7,6 +7,20 @@ abc['test']=[]
 abc['test'].push('give')
 console.log(abc) // test how to define type in js obj
 
+//interating throuhg obj, using entries
+const object1 = { foo: 'bar', baz: 42 };
+console.log(Object.entries(object1)[1]);
+// expected output: Array ["baz", 42]
+
+const object2 = {  1: 'b', 2: 'c',0: 'a' };
+console.log(Object.entries(object2)[2]);
+// expected output: Array ["2", "c"]
+
+const result = Object.entries(object2).sort((a, b) => a - b);//sort to compare number
+console.log('result',result)
+console.log(Object.entries(result)[1]);
+
+
 function getToArray(){
     //transfer to array
 }
@@ -33,5 +47,5 @@ function sortResult(data){
     //push to result the checking
 }
 
-sortResult(dataInput)
+// sortResult(dataInput)
 
