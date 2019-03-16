@@ -1,6 +1,11 @@
 const fs = require('fs')
 const dataInput = fs.readFileSync('input7-1.txt', 'utf8').split(/\r\n/gm)
-console.log(dataInput)
+// console.log(dataInput)
+
+let abc={}
+abc['test']=[]
+abc['test'].push('give')
+console.log(abc) // test how to define type in js obj
 
 function getToArray(){
     //transfer to array
