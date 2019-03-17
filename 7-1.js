@@ -74,3 +74,7 @@ function sortResult(data){
 
 sortResult(dataInput)
 
+
+// let obj={}, then find the start point
+//then run the selection and push the result
+//run many time = length <26
