@@ -14,11 +14,13 @@ function findPendingPoint(data){
     })
     return pendingPoint
 }
+//find pending points to sort based on current list
 
 function getOneResult(array){
     const selection = array.sort()
     return selection[0]
 }
+//sort and get one resulst
 
 function removeResultsDone(data,doneArray){
     const newData =data.filter(el=>{
@@ -26,6 +28,7 @@ function removeResultsDone(data,doneArray){
     })
     return newData
 }
+//remove the finished result from the "suppose to do list"
 
 
 function findlastNum(data){
@@ -36,11 +39,11 @@ function findlastNum(data){
     })
     return lastNum
 }
-
+//find the last number without precon
 
 function loopToResult(data){
     let results=[]
-    for (i=0;i<26;i++){
+    for (i=0;i<dataInput.length;i++){
         let newData = removeResultsDone(data,results)
         let pendingPoints = findPendingPoint(newData)
         let theOne = getOneResult(pendingPoints)
@@ -53,6 +56,7 @@ const results = loopToResult(dataInput)
 const lastNum = [...new Set(findlastNum(dataInput))]//find the unique number of an array
 
 const str = results.filter(el=>el!==undefined).map(el=>el).reduce((a,c)=>a+c)+lastNum 
+//remove the undefined value
 // get full list in string
 
 console.log(str)
