@@ -8,33 +8,5 @@ console.log (starting)
 
 // this step is to try to find the longest path to achive from beginning to the end
 
-
-// let finished =[]
-// let inPrgross =[]
-
-// let newData = info.removeResultsDone(input,finished)
-// console.log(newData)
-// let pendingPoints = info.findPendingPoint(newData)
-// // needtodo = pendingPoints - inprogress 
-
-// console.log(pendingPoints)
-
-// inPrgross.push([...new Set(pendingPoints)])
-// console.log(inPrgross)
-
-// let theOne = info.getOneResult(pendingPoints)
-// finished.push(theOne)
-// console.log(finished)
-
-
-let worker1=[]
-let worker2=[]
-let worker3=[]
-let worker4=[]
-let worker5=[]
-
-let round1 = starting.sort()
-console.log(round1)
-
-//after one finished, considered round2
+//From last number, push to different chain, make it concat with last number, then go again to develop all the chains, then cal the longest time
 
