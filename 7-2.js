@@ -10,3 +10,4 @@ console.log (starting)
 
 //From last number, push to different chain, make it concat with last number, then go again to develop all the chains, then cal the longest time
 
+//eventually like: 'GDFE','EFGFDS',sth like this
