@@ -1,7 +1,6 @@
 const fs = require('fs')
 const dataInput = fs.readFileSync('input7-1.txt', 'utf8').split(/\r\n/gm)
 console.log(dataInput[0])
-console.log('length',dataInput.length)
 
 function findPendingPoint(data){
     const precon = data.map(el=>el[5])
@@ -60,6 +59,6 @@ const str = results.filter(el=>el!==undefined).map(el=>el).reduce((a,c)=>a+c)+la
 //remove the undefined value
 // get full list in string
 
-console.log(str)
+console.log('7-1 resulst1',str)
 
-module.exports = {str,dataInput,findPendingPoint,removeResultsDone,getOneResult}
+module.exports = {str,dataInput,lastNum,findPendingPoint,removeResultsDone,getOneResult}

@@ -1,13 +1,46 @@
 
 const info = require('./export7.js')
-const input = info.dataInput
 
 const beginning = info.findPendingPoint(info.dataInput)
-const starting = [...new Set(beginning)]
-console.log (starting)
+const startLetters = [...new Set(beginning)]
+console.log(startLetters)
+const lastLettter = [info.lastNum[0]]
+console.log(lastLettter)
 
-// this step is to try to find the longest path to achive from beginning to the end
+//logic, running from last letter to see the longest branches
+function Runbackward (lastResult){
+    let nextResult = []
+    info.dataInput.forEach(el=>{
+        lastResult.forEach(re=>{
+            if(el[36]===re[re.length-1]){
+                nextResult.push(re+el[5])
+            }
+        })
+    })
+    return nextResult
+}
 
-//From last number, push to different chain, make it concat with last number, then go again to develop all the chains, then cal the longest time
+let backTraceLetter = lastLettter
 
-//eventually like: 'GDFE','EFGFDS',sth like this
+for (i=1;i<13;i++){
+    let oneround= Runbackward(backTraceLetter)
+    // console.log(oneround)
+    backTraceLetter=oneround
+    if(backTraceLetter[0]===undefined){
+        console.log(i) // find till the end, then know how many rounds
+        break
+    }
+}
+
+console.log(backTraceLetter)
+
+let final = backTraceLetter.map(el=>{
+    console.log('lenght',[...el].length)
+    let value = [...el].map(letter=>{
+        return (letter.charCodeAt(0) - 64)
+    })
+    .reduce((a,c)=>a+c)
+    return value + [...el].length *60
+})
+console.log(final)
+
