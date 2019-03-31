@@ -1,7 +1,7 @@
 const fs = require('fs')
 const dataInput = fs.readFileSync('input8-1.txt', 'utf8').split(' ')
 
-const input = dataInput.map(el=>el*1)
+const input ={0:dataInput.map(el=>el*1)} 
 // console.log(input)
 
 function getMetadata(array){
@@ -12,34 +12,29 @@ function getMetadata(array){
     //this function only return addup
 }
 
-const testarray = [3,2,3,9,77,88,4,5,6,33,7,65,4.3,22]
-getMetadata(testarray)
+const testObj ={"0":[3,2,3,9,77,88,4,5,6,33,7,65,4.3,22]} 
+getMetadata(testObj[0])
 
-function newArray (array){
-    const subnodes = array[0]
-    const leftover = array.slice(2,array.length-array[1])
-    console.log(leftover)
-    let newArray = {}
-    for (i=0;i<subnodes;i++){
-        newArray[i]=leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1))
-        // newArray.push(leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1)))
-    }
-    return newArray
-    // this funcdtion return the child nodes
-}
-
-console.log(newArray(testarray))
-
-function runManyTimes(array){
-    let metadata = getMetadata(array)
-    let subarray = newArray(array)
-    console.log(subarray)
-    for (let num in subarray){
-        console.log(subarray[num].length)
+function findnewOject (object){
+    let newOject = {}
+    for (let num in object){
+        console.log(object[num].length)
+        const subnodes = object[num][0]
+        const leftover = object[num].slice(2,object[num].length-object[num][1])
+        console.log(leftover)
+        
+        for (i=0;i<subnodes;i++){
+         newOject[i]=leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1))
+            // newOject.push(leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1)))
+        }
+        
     } 
-    //looping throught object
-
-    //now need to code to let it run many times to add up the data also
+    return newOject
 }
 
-runManyTimes(testarray)
+// console.log(typeof input)
+
+console.log (findnewOject(testObj))
+//all is working on obj
+//need to develop the addup function, and run this findnewObject till null
+
