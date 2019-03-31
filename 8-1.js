@@ -30,8 +30,12 @@ function findnewOject (object){
         const leftover = object[num].slice(2,object[num].length-object[num][1])
         // console.log(leftover)
         for (i=0;i<subnodes;i++){
-         newOject[num+'-'+i]=leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1))
-            // newOject.push(leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1)))
+        //  newOject[num+'-'+i]=leftover.slice(Math.ceil(leftover.length / subnodes *i),Math.ceil(leftover.length / subnodes *(i+1)))
+         newOject[num+'-'+i]=leftover.slice(Math.round(leftover.length / subnodes *i),Math.round(leftover.length / subnodes *(i+1)))
+        //  newOject[num+'-'+i]=leftover.slice(Math.round(leftover.length / subnodes *i),Math.round(leftover.length / subnodes *(i+1)))
+        // newOject[num+'-'+i]=leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1))
+    
+         // newOject.push(leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1)))
         }
         
     } 
@@ -61,7 +65,7 @@ console.log(findnewOject(findnewOject(testObj)),'2nd')
 
 var obj = {0:dataInput.map(el=>el*1)} 
 var sum = 0
-for (j=0;j<0;j++){
+for (j=0;j<20;j++){
     console.log('run'+j)
     sum += addup(obj)
     obj = findnewOject(obj)
