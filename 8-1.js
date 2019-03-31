@@ -15,12 +15,6 @@ function getMetadata(array){
 const testObj ={"0":[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]} 
 const testarr =[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
 
-let abc = testarr.slice(testarr.length-19,testarr.length).reduce((a,c)=>{return a+c},0)
-console.log(testarr.slice(testarr.length-13,testarr.length))
-console.log('abc,',abc)
-// console.log(testObj[0])
-console.log(getMetadata(testarr))
-// console.log(getMetadata(testObj[0]))
 
 function findnewOject (object){
     let newOject = {}
@@ -30,19 +24,12 @@ function findnewOject (object){
         const leftover = object[num].slice(2,object[num].length-object[num][1])
         // console.log(leftover)
         for (i=0;i<subnodes;i++){
-        //  newOject[num+'-'+i]=leftover.slice(Math.ceil(leftover.length / subnodes *i),Math.ceil(leftover.length / subnodes *(i+1)))
-         newOject[num+'-'+i]=leftover.slice(Math.round(leftover.length / subnodes *i),Math.round(leftover.length / subnodes *(i+1)))
-        //  newOject[num+'-'+i]=leftover.slice(Math.round(leftover.length / subnodes *i),Math.round(leftover.length / subnodes *(i+1)))
-        // newOject[num+'-'+i]=leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1))
-    
-         // newOject.push(leftover.slice(leftover.length / subnodes *i,leftover.length / subnodes *(i+1)))
+         newOject[num+'-'+i]=leftover.slice(Math.floor(leftover.length / subnodes *i),Math.floor(leftover.length / subnodes *(i+1)))
         }
         
     } 
     return newOject
 }
-//all is working on obj
-//need to develop the addup function, and run this findnewObject till null
 
 function addup(obj){
     let addup=[]
@@ -64,15 +51,17 @@ console.log(findnewOject(findnewOject(testObj)),'2nd')
 // console.log(addup(findnewOject(findnewOject(input))))
 
 var obj = {0:dataInput.map(el=>el*1)} 
+// var obj = testObj
+
 var sum = 0
-for (j=0;j<20;j++){
+for (j=0;j<4;j++){
     console.log('run'+j)
     sum += addup(obj)
     obj = findnewOject(obj)
-    console.log(obj)
+    // console.log(obj)
     console.log('sum',sum)
 
 }
-// console.log(obj)
+console.log(obj)
 
 console.log(dataInput.map(el=>el*1).reduce((a,c)=>a+c))
