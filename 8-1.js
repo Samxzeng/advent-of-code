@@ -52,8 +52,8 @@ function addup(obj){
 
 
 
-// console.log(findnewOject(testObj),'1st')
-// console.log(findnewOject(findnewOject(testObj)),'2nd')
+console.log(findnewOject(testObj),'1st')
+console.log(findnewOject(findnewOject(testObj)),'2nd')
 
 // console.log(addup(testObj))
 // console.log(addup(findnewOject(input)))
@@ -61,7 +61,7 @@ function addup(obj){
 
 var obj = {0:dataInput.map(el=>el*1)} 
 var sum = 0
-for (j=0;j<20;j++){
+for (j=0;j<0;j++){
     console.log('run'+j)
     sum += addup(obj)
     obj = findnewOject(obj)
