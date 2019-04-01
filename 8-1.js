@@ -67,3 +67,5 @@ function getresult(){
 getresult()
 console.log('input length', input[0].length)
 console.log(dataInput.map(el=>el*1).reduce((a,c)=>a+c))
+
+//problem:the data is not divided into integer
