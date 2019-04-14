@@ -29,6 +29,12 @@ function findnewOject (object){
             else{
          newOject[num+'-'+i]=leftover.slice(Math.floor(leftover.length / subnodes) *i, Math.floor(leftover.length / subnodes) *(i+1)+1)
             }
+            // if(i<subnodes-1){
+            //     newOject[num+'-'+i]=leftover.slice(Math.floor(leftover.length / subnodes) *i, Math.floor(leftover.length / subnodes) *(i+1))
+            //        }
+            //        else{
+            //     newOject[num+'-'+i]=leftover.slice(Math.floor(leftover.length / subnodes) *i, Math.floor(leftover.length / subnodes) *(i+1)+remainnumber)
+            //        }
         }
         
     } 
@@ -54,15 +60,16 @@ function addup(obj){
 
 function getresult(){
     let obj = {0:dataInput.map(el=>el*1)} 
-    // let obj = testObj   
-    let sum = 0
-    for (j=0;j<2;j++){
+    // let obj = testObj;
+    let sumNum =0 
+    for (j=0;j<21;j++){
         console.log('run'+j)
-        sum += addup(obj)
+        sumNum = addup(obj)+sumNum
         obj = findnewOject(obj)
         // console.log(obj)
+        console.log(sumNum)
         for (let n in obj){
-            console.log(obj[n].length)
+            // console.log(obj[n].length)
         }
     }
 }
