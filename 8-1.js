@@ -11,12 +11,8 @@ function getMetadata(array){
     return addup 
     //this function only return addup
 }
-// const children = new Array(3);
-// console.log(children)
 
 const testObj ={"0":[2, 3, 0, 3, 10, 11, 12, 1, 1, 0, 1, 99, 2, 1, 1, 2]} 
-const testarr =[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
-
 
 function findnewOject (object){
     let newOject = {}
@@ -60,7 +56,7 @@ function getresult(){
     let obj = {0:dataInput.map(el=>el*1)} 
     // let obj = testObj   
     let sum = 0
-    for (j=0;j<30;j++){
+    for (j=0;j<2;j++){
         console.log('run'+j)
         sum += addup(obj)
         obj = findnewOject(obj)
@@ -68,12 +64,10 @@ function getresult(){
         for (let n in obj){
             console.log(obj[n].length)
         }
-        console.log('sum',sum)
-    
     }
 }
 getresult()
-console.log('input length', input[0].length)
+console.log('input length', input[0].length)// the length of the number 
 console.log(dataInput.map(el=>el*1).reduce((a,c)=>a+c))
 
 //problem:the data is not divided into integer
